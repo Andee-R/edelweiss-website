@@ -1,6 +1,5 @@
 .home {
-  background: linear-gradient(rgba(8, 0, 58, 0.4), rgba(8, 0, 58, 0.4)),
-    url(../assets/biergarten.png);
+  background: linear-gradient(rgba(8, 0, 58, 0.4), rgba(8, 0, 58, 0.4)), url();
   background-size: cover;
   background-position: center;
   min-height: 100vh;

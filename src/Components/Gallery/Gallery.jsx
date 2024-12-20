@@ -1,6 +1,5 @@
 import React from "react";
 import "../Gallery/Gallery.css";
-import taps from "../Images/bier_taps.jpg";
 
 function Gallery() {
   return (
@@ -11,13 +10,13 @@ function Gallery() {
       <div className="images container">
         <div className="slider">
           <div className="slide">
-            <img src={taps} className="img-thumbnail img-fluid" alt="..." />
+            <img src={""} className="img-thumbnail img-fluid" alt="..." />
 
-            <img src={taps} className="img-thumbnail img-fluid" alt="..." />
+            <img src={""} className="img-thumbnail img-fluid" alt="..." />
 
-            <img src={taps} className="img-thumbnail img-fluid" alt="..." />
+            <img src={""} className="img-thumbnail img-fluid" alt="..." />
 
-            <img src={taps} className="img-thumbnail img-fluid " alt="..." />
+            <img src={""} className="img-thumbnail img-fluid " alt="..." />
           </div>
         </div>
       </div>
