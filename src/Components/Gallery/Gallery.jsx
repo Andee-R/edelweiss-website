@@ -1,5 +1,5 @@
 import React from "react";
-import "../Gallery.css";
+import "../Gallery/Gallery.css";
 import taps from "../Images/bier_taps.jpg";
 
 function Gallery() {

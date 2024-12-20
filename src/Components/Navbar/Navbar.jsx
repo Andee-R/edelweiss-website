@@ -1,28 +1,18 @@
 import React from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
-import edelweisslogo from "../../assets/Flattend_new_logo.png";
-import biermenu from "../../assets/biermenu.pdf";
-import cocktail from "../../assets/cocktails.pdf";
-import food from "../../assets/foodmenu.pdf";
-import { IconContext } from "react-icons";
+import edelweisslogo from "../Images/Flattend_new_logo.png";
+import biermenu from "../Images/biermenu.pdf";
+import cocktail from "../Images/cocktails.pdf";
+import food from "../Images/foodmenu.pdf";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav ref={navRef} className={`nav ${sticky ? "darkNav" : ""}`}>
+    <nav className="Navbar">
       <Link to="/home">
         <img src={edelweisslogo} alt="" className="logo" />
       </Link>
-      <IconContext.Provider
-        value={{ color: "black", className: "react-icons" }}>
-        <button className="btn " onClick={showNavbar}>
-          <FaBars />
-        </button>
-        <button className="btn " onClick={showNavbar}>
-          <FaTimes />
-        </button>
-      </IconContext.Provider>
+
       <ul className="menuLinks">
         <li>
           <Link to="/home">Home</Link>
