@@ -13,21 +13,23 @@ function Navbar() {
         <li>
           <Link to="/home">Home</Link>
         </li>
-        <li>
-          <Link to={""} target="_blank">
-            Bier Menu
-          </Link>
-        </li>
-        <li>
-          <Link to={""} target="_blank">
-            Cocktail Menu
-          </Link>
-        </li>
-        <li>
-          <Link to={""} target="_blank">
-            Food Menu
-          </Link>
-        </li>
+        <ul className="dropDown">
+          <li>
+            <Link to={""} target="_blank">
+              Bier Menu
+            </Link>
+          </li>
+          <li>
+            <Link to={""} target="_blank">
+              Cocktail Menu
+            </Link>
+          </li>
+          <li>
+            <Link to={""} target="_blank">
+              Food Menu
+            </Link>
+          </li>
+        </ul>
         <li>
           <Link to="/hostEvent" target="_blank">
             Host an Event

@@ -4,7 +4,7 @@ import Resident from "../Resident/Resident";
 import HostEvents from "../HostEvents/HostEvents";
 import Gallery from "../Gallery/Gallery";
 
-function Home() {
+export default function Home() {
   return (
     <div className="home">
       <div className="homeText container">
@@ -47,5 +47,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
