@@ -1,57 +1,76 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import edelweisslogo from "../../images/Flattend_new_logo.png";
+import biermenu from "../../images/beirmenu.jpeg";
+import cocktail from "../../images/cocktails.pdf";
+import food from "../../images/foodmenu.pdf";
+import { IconContext } from "react-icons";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import logo from "../../images/Flattend_new_logo.png";
 
 function Navbar() {
-  const navRef = useRef();
+  const navRef = useRef(null); // Initialize navRef
+  const [sticky, setSticky] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // State for dropdown
 
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
 
-  const [sticky, setSticky] = useState(false);
-
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       window.scrollY > 90 ? setSticky(true) : setSticky(false);
-    });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   return (
     <nav ref={navRef} className={`nav ${sticky ? "darkNav" : ""}`}>
       <Link to="/home">
-        <img src={logo} alt="" className="logo" />
+        <img src={edelweisslogo} alt="Logo" className="logo" />
       </Link>
-
+      <IconContext.Provider
+        value={{ color: "black", className: "react-icons" }}>
+        <button className="btn" onClick={showNavbar}>
+          <FaBars />
+        </button>
+        <button className="btn" onClick={showNavbar}>
+          <FaTimes />
+        </button>
+      </IconContext.Provider>
       <ul className="menuLinks">
         <li>
           <Link to="/home">Home</Link>
         </li>
-        <ul className="dropDown">
-          <li>
-            <Link to={""} target="_blank">
-              Bier Menu
-            </Link>
-          </li>
-          <li>
-            <Link to={""} target="_blank">
-              Cocktail Menu
-            </Link>
-          </li>
-          <li>
-            <Link to={""} target="_blank">
-              Food Menu
-            </Link>
-          </li>
-        </ul>
-        <li>
-          <Link to="/hostEvent" target="_blank">
-            Host an Event
-          </Link>
-        </li>
-        <li>
-          <Link to="/Gallery">Gallery</Link>
+        <li className="dropdown">
+          <button onClick={toggleDropdown}>Menus</button>
+          {dropdownOpen && (
+            <ul className="dropdown-menu">
+              <li>
+                <li>
+                  <Link to={food} target="_blank">
+                    Food Menu
+                  </Link>
+                </li>
+              </li>
+              <li>
+                <Link to={biermenu} target="_blank">
+                  Bier Menu
+                </Link>
+              </li>
+              <li>
+                <Link to={cocktail} target="_blank">
+                  Cocktail Menu
+                </Link>
+              </li>
+            </ul>
+          )}
         </li>
       </ul>
     </nav>
