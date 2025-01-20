@@ -1,6 +1,6 @@
 import React from "react";
-
-function HostEvent() {
+import "./HostEvents.css";
+function HostEvents() {
   return (
     <div>
       <h4>Hello</h4>
@@ -13,4 +13,4 @@ function HostEvent() {
   );
 }
 
-export default HostEvent;
+export default HostEvents;

@@ -1,12 +1,27 @@
-import React from "react";
-import "./Navbar.css";
+import React, { useEffect, useState, useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
+import logo from "../../images/Flattend_new_logo.png";
 
 function Navbar() {
+  const navRef = useRef();
+
+  const showNavbar = () => {
+    navRef.current.classList.toggle("responsive_nav");
+  };
+
+  const [sticky, setSticky] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY > 90 ? setSticky(true) : setSticky(false);
+    });
+  }, []);
   return (
-    <nav className="Navbar">
+    <nav ref={navRef} className={`nav ${sticky ? "darkNav" : ""}`}>
       <Link to="/home">
-        <img src={""} alt="" className="logo" />
+        <img src={logo} alt="" className="logo" />
       </Link>
 
       <ul className="menuLinks">
