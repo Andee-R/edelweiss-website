@@ -9,9 +9,10 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
-  const navRef = useRef(null); // Initialize navRef
+  const navRef = useRef(null);
   const [sticky, setSticky] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false); // State for dropdown
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
@@ -50,27 +51,23 @@ function Navbar() {
         </li>
         <li className="dropdown">
           <button onClick={toggleDropdown}>Menus</button>
-          {dropdownOpen && (
-            <ul className="dropdown-menu">
-              <li>
-                <li>
-                  <Link to={food} target="_blank">
-                    Food Menu
-                  </Link>
-                </li>
-              </li>
-              <li>
-                <Link to={biermenu} target="_blank">
-                  Bier Menu
-                </Link>
-              </li>
-              <li>
-                <Link to={cocktail} target="_blank">
-                  Cocktail Menu
-                </Link>
-              </li>
-            </ul>
-          )}
+          <ul className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}>
+            <li>
+              <Link to={food} target="_blank">
+                Food Menu
+              </Link>
+            </li>
+            <li>
+              <Link to={biermenu} target="_blank">
+                Bier Menu
+              </Link>
+            </li>
+            <li>
+              <Link to={cocktail} target="_blank">
+                Cocktail Menu
+              </Link>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
